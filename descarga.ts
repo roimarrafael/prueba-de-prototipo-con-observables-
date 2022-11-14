@@ -27,4 +27,5 @@ export const exportFile = (data: string, fileName: string) => {
   document.body.appendChild(link);
   link.click();
   document.body.removeChild(link);
+  console.log('descargando');
 };
