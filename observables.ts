@@ -27,12 +27,12 @@ export const descargar = (params: string, time: number) => {
     const sub = vigilar$.pipe(map(realizar_peticion)).subscribe((accion) => {
       accion
         .pipe(
+          tap((a) => exportFile(a[0], a[1])),
           filter((r) => {
             return r[1] === params;
           })
         )
         .subscribe((a) => {
-          exportFile(a[0], a[1]);
           resolve([true, a[0]]);
         });
     });
